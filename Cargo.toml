@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 firefly-rust = { version = "0.10.0", features = ["alloc", "talc"] }
+bulb-parser = { path = "../bulb-parser" }
 
 # https://github.com/johnthagen/min-sized-rust
 [profile.release]

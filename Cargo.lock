@@ -3,9 +3,14 @@
 version = 4
 
 [[package]]
+name = "bulb-parser"
+version = "0.1.0"
+
+[[package]]
 name = "firefly-bulb"
 version = "0.1.0"
 dependencies = [
+ "bulb-parser",
  "firefly-rust",
 ]
 

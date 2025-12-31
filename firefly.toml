@@ -3,3 +3,7 @@ app_id = "bulb"
 author_name = "Demo"
 app_name = "Bulb Script"
 lang = "rust"
+
+[files]
+main = { path = "main.bulb", copy = true }
+font = { path = "eg_6x9.fff", url = "https://fonts.fireflyzero.com/fonts/ascii/eg_6x9.fff" }
