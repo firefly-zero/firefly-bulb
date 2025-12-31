@@ -16,6 +16,7 @@ pub fn render_room(state: &mut State) {
     state.room_dirty = false;
     clear_room(state);
     draw_tiles(state);
+    draw_player(state);
 }
 
 fn clear_room(_state: &State) {
@@ -36,4 +37,15 @@ fn draw_tiles(state: &State) {
             ff::draw_image(&image, p);
         }
     }
+}
+
+fn draw_player(state: &State) {
+    let Some(image_id) = state.script.sections.player else {
+        return;
+    };
+    let image = &state.script.sections.images[image_id];
+    let pos = state.script.pos;
+    let p = ff::Point::new(pos.x as i32 * 8, pos.y as i32 * 8);
+    let image = unsafe { ff::Image::from_bytes(&image.raw) };
+    ff::draw_image(&image, p);
 }
