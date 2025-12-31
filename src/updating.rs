@@ -91,7 +91,8 @@ fn advance_actions(state: &mut State) {
         };
         use bulb_parser::Action::*;
         if let Say(msg) = action {
-            state.msg = Some(msg)
+            state.msg = Some(msg);
+            break;
         } else {
             state.script.apply(&action);
         }
