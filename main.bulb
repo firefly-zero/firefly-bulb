@@ -56,17 +56,13 @@ START 1
 T 🐈
 IMAGE 🐈
 WALL 1
-ACTION cat
-
-A cat
+A
 SAY Cat: I'm a cat.
 SAY Yes, I can talk.
 
 T 🔑
 IMAGE 🔑
-ACTION key
-
-A key
+A
 SAY You found a key!
 ADD key 1
 PLACE ⚪️
@@ -74,50 +70,38 @@ PLACE ⚪️
 T D1
 IMAGE 🚪
 WALL 1
-ACTION door1
-
-A door1
+A
 BRANCH key == 0   door_closed
-EXIT start 7 13
+MOVE start 7 13
 
 A door_closed
 SAY The door is closed...
 
 T D2
 IMAGE 🚪
-ACTION door2
-
-A door2
-EXIT start 7 7
+A
+MOVE start 7 7
 
 T D3
 IMAGE 🚪
-ACTION door3
-
-A door3
-EXIT second 17 15
+A
+MOVE second 17 15
 
 T D4
 IMAGE 🚪
-ACTION door4
-
-A door4
-EXIT start 13 15
+A
+MOVE start 13 15
 
 T 💡
 IMAGE 💡
 WALL 1
-ACTION lamp_on
-
-A lamp_on
+A
 PLACE ⚫ 23 7
 
 T ⚫
 IMAGE ⚫
 WALL 1
-ACTION lamp_off
-
-A lamp_off
+A
 PLACE 💡 23 7
 
 P idle
