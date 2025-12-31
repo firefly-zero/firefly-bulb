@@ -1,12 +1,8 @@
 use crate::*;
-use alloc::vec::Vec;
 use core::cell::OnceCell;
 use firefly_rust as ff;
 
 static mut STATE: OnceCell<State> = OnceCell::new();
-
-pub type Image = Vec<u8>;
-pub type Images = Vec<Image>;
 
 pub struct State {
     pub script: bulb_parser::State,
