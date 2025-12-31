@@ -1,4 +1,5 @@
 use crate::*;
+use alloc::string::String;
 use core::cell::OnceCell;
 use firefly_rust as ff;
 
@@ -7,12 +8,10 @@ static mut STATE: OnceCell<State> = OnceCell::new();
 pub struct State {
     pub script: bulb_parser::State,
     pub update_frame: u16,
-    pub render_frame: u16,
-    pub dialog_frame: u16,
-    pub room_dirty: bool,
     pub held_for: u32,
     pub dpad: ff::DPad,
     pub font: ff::FileBuf,
+    pub msg: Option<String>,
 }
 
 fn set_state(state: State) {
@@ -43,11 +42,9 @@ pub fn load_state() {
         script: bulb_parser::State::new(sections),
         font,
         update_frame: 0,
-        render_frame: 0,
-        dialog_frame: 0,
         held_for: 0,
-        room_dirty: true,
         dpad: ff::DPad::default(),
+        msg: None,
     };
     set_state(state);
 }
