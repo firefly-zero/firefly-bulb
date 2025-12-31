@@ -1,0 +1,5 @@
+author_id = "demo"
+app_id = "bulb"
+author_name = "Demo"
+app_name = "Bulb Script"
+lang = "rust"
