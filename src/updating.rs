@@ -85,6 +85,7 @@ fn to_dpad(pad: ff::Pad) -> ff::DPad {
 }
 
 fn advance_actions(state: &mut State) {
+    state.dirty = true;
     loop {
         let Some(action) = state.script.pop() else {
             break;
@@ -112,6 +113,7 @@ fn move_avatar_to(state: &mut State, dx: i8, dy: i8) {
     let tile_id = room.tiles[usize::from(y)][usize::from(x)];
     let tile = &state.script.sections.tiles[tile_id];
     if !tile.wall {
+        state.dirty = true;
         state.script.pos = new_pos;
     }
     if let Some(action_id) = tile.action {

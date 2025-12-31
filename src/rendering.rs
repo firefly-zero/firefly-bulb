@@ -5,6 +5,10 @@ const COLOR_BG: ff::Color = ff::Color::new(1);
 const COLOR_TEXT: ff::Color = ff::Color::new(13);
 
 pub fn render_room(state: &mut State) {
+    if !state.dirty {
+        return;
+    }
+    state.dirty = false;
     clear_room(state);
     draw_tiles(state);
     draw_player(state);

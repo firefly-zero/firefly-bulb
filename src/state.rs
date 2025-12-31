@@ -7,10 +7,10 @@ static mut STATE: OnceCell<State> = OnceCell::new();
 
 pub struct State {
     pub script: bulb_parser::State,
-    pub update_frame: u16,
     pub held_for: u32,
     pub dpad: ff::DPad,
     pub font: ff::FileBuf,
+    pub dirty: bool,
     pub msg: Option<String>,
 }
 
@@ -41,7 +41,7 @@ pub fn load_state() {
     let state = State {
         script: bulb_parser::State::new(sections),
         font,
-        update_frame: 0,
+        dirty: true,
         held_for: 0,
         dpad: ff::DPad::default(),
         msg: None,
