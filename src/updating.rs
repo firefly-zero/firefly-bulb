@@ -26,6 +26,7 @@ fn handle_pad(state: &mut State) {
 
     if state.msg.is_some() {
         if pressed.any() {
+            state.msg = None;
             advance_actions(state);
         }
         return;
@@ -114,5 +115,6 @@ fn move_avatar_to(state: &mut State, dx: i8, dy: i8) {
     }
     if let Some(action_id) = tile.action {
         state.script.enqueue(action_id);
+        advance_actions(state);
     }
 }
