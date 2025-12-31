@@ -84,7 +84,17 @@ fn to_dpad(pad: ff::Pad) -> ff::DPad {
 }
 
 fn advance_actions(state: &mut State) {
-    // ...
+    loop {
+        let Some(action) = state.script.pop() else {
+            break;
+        };
+        use bulb_parser::Action::*;
+        if let Say(msg) = action {
+            state.msg = Some(msg)
+        } else {
+            state.script.apply(&action);
+        }
+    }
 }
 
 fn move_avatar_to(state: &mut State, dx: i8, dy: i8) {
@@ -101,5 +111,8 @@ fn move_avatar_to(state: &mut State, dx: i8, dy: i8) {
     let tile = &state.script.sections.tiles[tile_id];
     if !tile.wall {
         state.script.pos = new_pos;
+    }
+    if let Some(action_id) = tile.action {
+        state.script.enqueue(action_id);
     }
 }
