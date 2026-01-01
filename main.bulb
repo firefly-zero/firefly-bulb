@@ -32,7 +32,7 @@ R second
 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
-⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ 🎲 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
@@ -66,12 +66,20 @@ IMAGE 🐈
 WALL 1
 A
 SAY MEOW =^_^=
+PLACE cat3
+
+T cat3
+IMAGE 🐈
+WALL 1
+A
+SAY meow >.<
+PLACE cat2
 
 T 🔑
 IMAGE 🔑
 A
 SAY You found a key!
-ADD key 1
+SET key 1
 PLACE ⚪️
 
 T D1
@@ -134,6 +142,62 @@ PLACE 💔 27 0
 IF damage < 4 BREAK
 SAY You're dead
 END
+
+T 🎲
+I 🎲6
+WALL 1
+A roll
+
+T 🎲1
+I 🎲1
+WALL 1
+A roll
+
+A 🎲1
+PLACE 🎲1
+
+T 🎲2
+I 🎲2
+WALL 1
+A roll
+
+A 🎲2
+PLACE 🎲2
+
+T 🎲3
+I 🎲3
+WALL 1
+A roll
+
+A 🎲3
+PLACE 🎲3
+
+T 🎲4
+I 🎲4
+WALL 1
+A roll
+
+A 🎲4
+PLACE 🎲4
+
+T 🎲5
+I 🎲5
+WALL 1
+A roll
+
+A 🎲5
+PLACE 🎲5
+
+T 🎲6
+I 🎲6
+WALL 1
+A roll
+
+A 🎲6
+PLACE 🎲6
+
+A roll
+SELECT 🎲1 🎲2 🎲3 🎲4 🎲5 🎲6
 
 P idle
 . . . A A . . .
@@ -248,3 +312,62 @@ I 🔥
 . 4 3 . . 3 4 .
 . . 4 4 . 4 . .
 
+I 🎲1
+. E E E E E E .
+E E E E E E E E
+E E E E E E E E
+E E E 3 3 E E E
+E E E 3 3 E E E
+E E E E E E E E
+E E E E E E E E
+. E E E E E E .
+
+I 🎲2
+. E E E E E E .
+E E E E E 3 3 E
+E E E E E 3 3 E
+E E E E E E E E
+E E E E E E E E
+E 3 3 E E E E E
+E 3 3 E E E E E
+. E E E E E E .
+
+I 🎲3
+. E E E E E E .
+E E E E E 3 3 E
+E E E E E 3 3 E
+E E E 3 3 E E E
+E E E 3 3 E E E
+E 3 3 E E E E E
+E 3 3 E E E E E
+. E E E E E E .
+
+I 🎲4
+. E E E E E E .
+E 3 3 E E 3 3 E
+E 3 3 E E 3 3 E
+E E E E E E E E
+E E E E E E E E
+E 3 3 E E 3 3 E
+E 3 3 E E 3 3 E
+. E E E E E E .
+
+I 🎲5
+. E E E E E E .
+E 3 3 E E 3 3 E
+E 3 3 E E 3 3 E
+E E E 3 3 E E E
+E E E 3 3 E E E
+E 3 3 E E 3 3 E
+E 3 3 E E 3 3 E
+. E E E E E E .
+
+I 🎲6
+. 3 3 E E 3 3 .
+E 3 3 E E 3 3 E
+E E E E E E E E
+E 3 3 E E 3 3 E
+E 3 3 E E 3 3 E
+E E E E E E E E
+E 3 3 E E 3 3 E
+. 3 3 E E 3 3 .
