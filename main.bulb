@@ -71,7 +71,7 @@ T D1
 IMAGE 🚪
 WALL 1
 A
-BRANCH key == 0   door_closed
+IF key == 0 JUMP door_closed
 MOVE start 7 13
 
 A door_closed
@@ -120,11 +120,11 @@ ACTION take_damage
 A take_damage
 ADD damage 1
 PLACE 💔 29 0
-BRANCH damage < 2
+IF damage < 2 BREAK
 PLACE 💔 28 0
-BRANCH damage < 3
+IF damage < 3 BREAK
 PLACE 💔 27 0
-BRANCH damage < 4
+IF damage < 4 BREAK
 SAY You're dead
 END
 
