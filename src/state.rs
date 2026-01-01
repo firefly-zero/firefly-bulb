@@ -39,7 +39,7 @@ pub fn load_state() {
         panic!("font not found")
     };
     let mut state = State {
-        script: bulb_parser::State::new(sections).unwrap(),
+        script: bulb_parser::State::new(sections),
         font,
         dirty: true,
         held_for: 0,

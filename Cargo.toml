@@ -2,6 +2,7 @@
 name = "firefly-bulb"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.91.0"
 
 [dependencies]
 firefly-rust = { version = "0.10.0", features = ["alloc", "talc"] }

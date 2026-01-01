@@ -89,11 +89,11 @@ T D1
 IMAGE 🚪
 WALL 1
 A
-IF key == 0 JUMP door_closed
+IF key == 0 JUMP door_locked
 MOVE start 7 13
 
-A door_closed
-SAY The door is closed...
+A door_locked
+SAY The door is locked...
 
 T D2
 IMAGE 🚪
