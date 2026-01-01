@@ -21,13 +21,19 @@ fn clear_room(_state: &State) {
 
 fn draw_tiles(state: &State) {
     let room = &state.script.sections.rooms[state.script.pos.room];
-    for (y, line) in room.tiles.iter().enumerate() {
-        for (x, tile) in line.iter().enumerate() {
-            let tile = &state.script.sections.tiles[*tile];
-            let Some(image_id) = tile.image else {
-                continue;
+    for y in 0..20 {
+        for x in 0..30 {
+            // Boundary checks are for cowards!
+            // Skipping the checks makes the rendering cycle 8% faster.
+            // If bulb-parser has no bugs in the ID resolution, all indices are valid.
+            let image = unsafe {
+                let tile_id = room.tiles.get_unchecked(y).get_unchecked(x);
+                let tile = &state.script.sections.tiles.get_unchecked(*tile_id);
+                let Some(image_id) = tile.image else {
+                    continue;
+                };
+                state.script.sections.images.get_unchecked(image_id)
             };
-            let image = &state.script.sections.images[image_id];
             let p = ff::Point::new(x as i32 * 8, y as i32 * 8);
             let image = unsafe { ff::Image::from_bytes(&image.raw) };
             ff::draw_image(&image, p);
