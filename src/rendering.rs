@@ -9,6 +9,10 @@ pub fn render_room(state: &mut State) {
         return;
     }
     state.dirty = false;
+    if state.script.end {
+        draw_end(state);
+        return;
+    }
     clear_room(state);
     draw_tiles(state);
     draw_player(state);
@@ -64,4 +68,14 @@ fn draw_message(state: &State) {
     let font = state.font.as_font();
     let p = ff::Point::new(2, p.y + i32::from(font.char_height()));
     ff::draw_text(msg, &font, p, COLOR_TEXT);
+}
+
+/// Render "THE END" screen.
+fn draw_end(state: &State) {
+    ff::clear_screen(COLOR_BG);
+    let font = state.font.as_font();
+    let x = (ff::WIDTH - i32::from(font.char_width()) * 7) / 2;
+    let y = (ff::HEIGHT + i32::from(font.char_height())) / 2;
+    let point = ff::Point::new(x, y);
+    ff::draw_text("THE END", &font, point, COLOR_TEXT);
 }
