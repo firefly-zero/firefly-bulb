@@ -112,6 +112,7 @@ fn move_avatar_to(state: &mut State, dx: i8, dy: i8) {
     let room = &state.script.sections.rooms[new_pos.room];
     let tile_id = room.tiles[usize::from(y)][usize::from(x)];
     let tile = &state.script.sections.tiles[tile_id];
+    state.script.tile_pos = new_pos;
     if !tile.wall {
         state.dirty = true;
         state.script.pos = new_pos;

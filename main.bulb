@@ -59,6 +59,13 @@ WALL 1
 A
 SAY Cat: I'm a cat.
 SAY Yes, I can talk.
+PLACE cat2
+
+T cat2
+IMAGE 🐈
+WALL 1
+A
+SAY MEOW =^_^=
 
 T 🔑
 IMAGE 🔑
@@ -96,13 +103,13 @@ T 💡
 IMAGE 💡
 WALL 1
 A
-PLACE ⚫ 23 7
+PLACE ⚫
 
 T ⚫
 IMAGE ⚫
 WALL 1
 A
-PLACE 💡 23 7
+PLACE 💡
 
 T ♥️
 IMAGE ♥️
