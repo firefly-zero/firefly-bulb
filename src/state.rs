@@ -46,6 +46,7 @@ pub fn load_state() {
         dpad: ff::DPad::default(),
         msg: None,
     };
+    state.script.seed = ff::get_random();
     advance_actions(&mut state);
     set_state(state);
 }
