@@ -52,6 +52,9 @@ WALL 1
 T 🚩
 IMAGE ⚪️
 START 1
+A
+SAY Welcome, adventurer!
+PLACE ⚪️
 
 T 🐈
 IMAGE 🐈

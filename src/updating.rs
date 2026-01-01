@@ -84,7 +84,7 @@ fn to_dpad(pad: ff::Pad) -> ff::DPad {
     dpad
 }
 
-fn advance_actions(state: &mut State) {
+pub fn advance_actions(state: &mut State) {
     state.dirty = true;
     loop {
         let Some(action) = state.script.pop() else {

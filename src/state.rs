@@ -38,13 +38,14 @@ pub fn load_state() {
     let Some(font) = ff::load_file_buf("font") else {
         panic!("font not found")
     };
-    let state = State {
-        script: bulb_parser::State::new(sections),
+    let mut state = State {
+        script: bulb_parser::State::new(sections).unwrap(),
         font,
         dirty: true,
         held_for: 0,
         dpad: ff::DPad::default(),
         msg: None,
     };
+    advance_actions(&mut state);
     set_state(state);
 }
