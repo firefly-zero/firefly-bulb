@@ -25,8 +25,8 @@ fn clear_room(_state: &State) {
 
 fn draw_tiles(state: &State) {
     let room = &state.script.sections.rooms[state.script.pos.room];
-    for y in 0..20 {
-        for x in 0..30 {
+    for y in 0..10 {
+        for x in 0..15 {
             // Boundary checks are for cowards!
             // Skipping the checks makes the rendering cycle 8% faster.
             // If bulb-parser has no bugs in the ID resolution, all indices are valid.
