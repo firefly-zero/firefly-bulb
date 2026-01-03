@@ -10,6 +10,7 @@ pub struct State {
     pub held_for: u32,
     pub dpad: ff::DPad,
     pub font: ff::FileBuf,
+    pub atlas: ff::FileBuf,
     pub dirty: bool,
     pub msg: Option<String>,
 }
@@ -36,11 +37,17 @@ pub fn load_state() {
         }
     };
     let Some(font) = ff::load_file_buf("font") else {
-        panic!("font not found")
+        ff::log_error("font not found");
+        panic!();
+    };
+    let Some(atlas) = ff::load_file_buf("atlas") else {
+        ff::log_error("atlas not found");
+        panic!();
     };
     let mut state = State {
         script: bulb_parser::State::new(sections),
         font,
+        atlas,
         dirty: true,
         held_for: 0,
         dpad: ff::DPad::default(),

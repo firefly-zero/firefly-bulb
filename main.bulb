@@ -182,175 +182,54 @@ PLACE 🎲6
 A roll
 SELECT 🎲1 🎲2 🎲3 🎲4 🎲5 🎲6
 
-P idle
-. . . A A . . .
-. . . 3 3 . . .
-. . . 3 3 . . .
-. . 3 3 3 3 . .
-. 3 3 3 3 3 3 .
-A . 3 3 3 3 . A
-. . 3 . . 3 . .
-. . A . . A . .
+I idle
+POS 0 0
+PLAYER 1 idle
 
 I ⚪️
-. . . . . . . .
-. . . . . . . .
-. . . . . . . .
-. . . . . . . .
-. . . . . . . .
-. . . . . . . .
-. . . . . . . .
-. . . . . . . .
+POS 1 0
 
 I 🧱
-D D D D D D D D
-D . . . . . . D
-D . D D D D . D
-D . D . . D . D
-D . D . . D . D
-D . D D D D . D
-D . . . . . . D
-D D D D D D D D
+POS 2 0
 
 I 🐈
-. . . . . . . .
-. . . . . . . .
-. 4 . 4 . . . 4
-. 4 4 4 . . . 4
-. 4 4 4 . . 4 .
-. 4 4 4 4 4 . .
-. . 4 4 4 4 . .
-. . 4 . . 4 . .
+POS 3 0
 
 I 🔑
-. . . . . . . .
-. . 4 4 4 4 . .
-. . 4 . . 4 . .
-. . 4 4 4 4 . .
-. . . 4 . . . .
-. . . 4 4 . . .
-. . . 4 . . . .
-. . . 4 4 . . .
+POS 4 0
 
 I 🚪
-D D D D D D D D
-D D 4 4 4 4 D D
-D D 4 . . 4 D D
-D D 4 . 5 4 D D
-D D 4 . . 4 D D
-D D 4 . . 4 D D
-D D 4 4 4 4 D D
-D D D D D D D D
-
+POS 0 1
 
 I 💡
-. . . . . . . .
-. . . 5 5 . . .
-. . 5 5 5 5 . .
-. . 5 5 5 5 . .
-. . . 5 5 . . .
-. . . F F . . .
-. . . F F . . .
-. . . . . . . .
-
-
+POS 1 1
 
 I ⚫
-. . . . . . . .
-. . . E E . . .
-. . E E E E . .
-. . E E E E . .
-. . . E E . . .
-. . . F F . . .
-. . . F F . . .
-. . . . . . . .
+POS 2 1
 
 I ♥️
-. . . . . . . .
-. . . . . . . .
-. . 3 . . 3 . .
-. 3 3 3 3 3 3 .
-. 3 3 3 3 3 3 .
-. . 3 3 3 3 . .
-. . . 3 3 . . .
-. . . . . . . .
+POS 3 1
 
 I 💔
-. . . . . . . .
-. . . . . . . .
-. . E . . E . .
-. E E E E E E .
-. E E E E E E .
-. . E E E E . .
-. . . E E . . .
-. . . . . . . .
+POS 4 1
 
 I 🔥
-. . . 4 . . 4 .
-. 4 . 4 4 . . .
-. 4 4 4 4 4 . .
-. 4 4 . 3 4 4 .
-. 4 3 . . 3 4 .
-. 4 3 . . . 4 .
-. 4 3 . . 3 4 .
-. . 4 4 . 4 . .
+POS 5 1
 
 I 🎲1
-. E E E E E E .
-E E E E E E E E
-E E E E E E E E
-E E E 3 3 E E E
-E E E 3 3 E E E
-E E E E E E E E
-E E E E E E E E
-. E E E E E E .
+POS 0 2
 
 I 🎲2
-. E E E E E E .
-E E E E E 3 3 E
-E E E E E 3 3 E
-E E E E E E E E
-E E E E E E E E
-E 3 3 E E E E E
-E 3 3 E E E E E
-. E E E E E E .
+POS 1 2
 
 I 🎲3
-. E E E E E E .
-E E E E E 3 3 E
-E E E E E 3 3 E
-E E E 3 3 E E E
-E E E 3 3 E E E
-E 3 3 E E E E E
-E 3 3 E E E E E
-. E E E E E E .
+POS 2 2
 
 I 🎲4
-. E E E E E E .
-E 3 3 E E 3 3 E
-E 3 3 E E 3 3 E
-E E E E E E E E
-E E E E E E E E
-E 3 3 E E 3 3 E
-E 3 3 E E 3 3 E
-. E E E E E E .
+POS 3 2
 
 I 🎲5
-. E E E E E E .
-E 3 3 E E 3 3 E
-E 3 3 E E 3 3 E
-E E E 3 3 E E E
-E E E 3 3 E E E
-E 3 3 E E 3 3 E
-E 3 3 E E 3 3 E
-. E E E E E E .
+POS 4 2
 
 I 🎲6
-. 3 3 E E 3 3 .
-E 3 3 E E 3 3 E
-E E E E E E E E
-E 3 3 E E 3 3 E
-E 3 3 E E 3 3 E
-E E E E E E E E
-E 3 3 E E 3 3 E
-. 3 3 E E 3 3 .
+POS 5 2

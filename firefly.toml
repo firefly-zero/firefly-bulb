@@ -7,3 +7,4 @@ lang = "rust"
 [files]
 main = { path = "main.bulb", copy = true }
 font = { path = "eg_6x9.fff", url = "https://fonts.fireflyzero.com/fonts/ascii/eg_6x9.fff" }
+atlas = { path = "atlas.png" }

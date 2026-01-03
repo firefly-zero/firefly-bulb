@@ -3,6 +3,7 @@ use firefly_rust as ff;
 
 const COLOR_BG: ff::Color = ff::Color::new(1);
 const COLOR_TEXT: ff::Color = ff::Color::new(13);
+const SPRITE_SIZE: u8 = 16;
 
 pub fn render_room(state: &mut State) {
     if !state.dirty {
@@ -38,9 +39,15 @@ fn draw_tiles(state: &State) {
                 };
                 state.script.sections.images.get_unchecked(image_id)
             };
-            let p = ff::Point::new(x as i32 * 8, y as i32 * 8);
-            let image = unsafe { ff::Image::from_bytes(&image.raw) };
-            ff::draw_image(&image, p);
+            let p = ff::Point::new(x as u8 * SPRITE_SIZE, y as u8 * SPRITE_SIZE);
+            let sub = {
+                let atlas = state.atlas.as_image();
+                let size = ff::Size::new(SPRITE_SIZE, SPRITE_SIZE);
+                let atlas_pos =
+                    ff::Point::new(image.pos.x * SPRITE_SIZE, image.pos.y * SPRITE_SIZE);
+                atlas.sub(atlas_pos, size)
+            };
+            ff::draw_sub_image(&sub, p);
         }
     }
 }
@@ -51,9 +58,14 @@ fn draw_player(state: &State) {
     };
     let image = &state.script.sections.images[image_id];
     let pos = state.script.pos;
-    let p = ff::Point::new(pos.x as i32 * 8, pos.y as i32 * 8);
-    let image = unsafe { ff::Image::from_bytes(&image.raw) };
-    ff::draw_image(&image, p);
+    let p = ff::Point::new(pos.x * SPRITE_SIZE, pos.y * SPRITE_SIZE);
+    let sub = {
+        let atlas = state.atlas.as_image();
+        let size = ff::Size::new(SPRITE_SIZE, SPRITE_SIZE);
+        let atlas_pos = ff::Point::new(image.pos.x * SPRITE_SIZE, image.pos.y * SPRITE_SIZE);
+        atlas.sub(atlas_pos, size)
+    };
+    ff::draw_sub_image(&sub, p);
 }
 
 fn draw_message(state: &State) {
