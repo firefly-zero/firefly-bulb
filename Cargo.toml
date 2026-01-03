@@ -1,12 +1,13 @@
 [package]
 name = "firefly-bulb"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 rust-version = "1.91.0"
 
 [dependencies]
 firefly-rust = { version = "0.10.0", features = ["alloc", "talc"] }
-bulb-parser = { path = "../bulb-parser" }
+# bulb-parser = { path = "../bulb-parser" }
+bulb-parser = "0.2.0"
 
 # https://github.com/johnthagen/min-sized-rust
 [profile.release]
