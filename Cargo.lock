@@ -10,7 +10,7 @@ checksum = "993b1e7ce15bc0ec6ae5e079fa292f734c596f26dcb301c2816d4f3f7d67453e"
 
 [[package]]
 name = "firefly-bulb"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "bulb-parser",
  "firefly-rust",
