@@ -18,10 +18,10 @@ fn handle_pad(state: &mut State) {
         state.held_for = 0;
     }
     let mut old_dpad = state.dpad;
-    if state.held_for > 14 && state.held_for.is_multiple_of(4) {
-        old_dpad = ff::DPad::default();
+    if state.held_for > 20 && state.held_for.is_multiple_of(4) {
+        old_dpad = ff::DPad4::None;
     }
-    let pressed = dpad.just_pressed(&old_dpad);
+    let pressed = dpad.just_pressed(old_dpad);
     state.dpad = dpad;
 
     if state.msg.is_some() {
@@ -36,52 +36,34 @@ fn handle_pad(state: &mut State) {
         return;
     }
 
-    if pressed.left {
-        move_avatar_to(state, -1, 0);
-    } else if pressed.right {
-        move_avatar_to(state, 1, 0);
-    } else if pressed.up {
-        move_avatar_to(state, 0, -1);
-    } else if pressed.down {
-        move_avatar_to(state, 0, 1);
+    match pressed {
+        ff::DPad4::Left => move_avatar_to(state, -1, 0),
+        ff::DPad4::Right => move_avatar_to(state, 1, 0),
+        ff::DPad4::Up => move_avatar_to(state, 0, -1),
+        ff::DPad4::Down => move_avatar_to(state, 0, 1),
+        ff::DPad4::None => {}
     }
 }
 
-fn read_dpad() -> firefly_rust::DPad {
-    let mut dpad = match ff::read_pad(ff::Peer::COMBINED) {
-        Some(pad) => to_dpad(pad),
-        None => ff::DPad::default(),
-    };
+fn read_dpad() -> ff::DPad4 {
     let buttons = ff::read_buttons(ff::Peer::COMBINED);
     if buttons.s {
-        dpad.down = true;
+        return ff::DPad4::Down;
     }
     if buttons.e {
-        dpad.right = true;
+        return ff::DPad4::Right;
     }
     if buttons.w {
-        dpad.left = true;
+        return ff::DPad4::Left;
     }
     if buttons.n {
-        dpad.up = true;
+        return ff::DPad4::Up;
     }
-    dpad
-}
 
-fn to_dpad(pad: ff::Pad) -> ff::DPad {
-    let mut dpad = ff::DPad::default();
-    let x = pad.x;
-    let y = pad.y;
-    if y > 100 && y > x.abs() {
-        dpad.up = true
-    } else if y < -100 && -y > x.abs() {
-        dpad.down = true
-    } else if x > 100 && x > y.abs() {
-        dpad.right = true
-    } else if x < -100 && -x > y.abs() {
-        dpad.left = true
+    match ff::read_pad(ff::Peer::COMBINED) {
+        Some(pad) => pad.as_dpad4(),
+        None => ff::DPad4::None,
     }
-    dpad
 }
 
 pub fn advance_actions(state: &mut State) {

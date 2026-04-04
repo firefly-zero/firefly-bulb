@@ -8,7 +8,7 @@ static mut STATE: OnceCell<State> = OnceCell::new();
 pub struct State {
     pub script: bulb_parser::State,
     pub held_for: u32,
-    pub dpad: ff::DPad,
+    pub dpad: ff::DPad4,
     pub font: ff::FileBuf,
     pub atlas: ff::FileBuf,
     pub dirty: bool,
@@ -50,7 +50,7 @@ pub fn load_state() {
         atlas,
         dirty: true,
         held_for: 0,
-        dpad: ff::DPad::default(),
+        dpad: ff::DPad4::None,
         msg: None,
     };
     state.script.seed = ff::get_random();
