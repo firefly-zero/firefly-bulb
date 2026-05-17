@@ -116,14 +116,14 @@ WALL 1
 ACTION take_damage
 
 A take_damage
-ADD damage 1
+SET damage damage+1
 PLACE 💔 14 0
 IF damage < 2 BREAK
 PLACE 💔 13 0
 IF damage < 3 BREAK
 PLACE 💔 12 0
 IF damage < 4 BREAK
-SAY You're dead
+SAY WASTED
 END
 
 T 🎲

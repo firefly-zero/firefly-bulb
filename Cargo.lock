@@ -4,13 +4,13 @@ version = 4
 
 [[package]]
 name = "bulb-parser"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "993b1e7ce15bc0ec6ae5e079fa292f734c596f26dcb301c2816d4f3f7d67453e"
+checksum = "01d95401897afe7fc5a5b4430d17bda60f0ebac97c95b0b4825131a9fa7d3bae"
 
 [[package]]
 name = "firefly-bulb"
-version = "0.2.1"
+version = "0.3.0"
 dependencies = [
  "bulb-parser",
  "firefly-rust",

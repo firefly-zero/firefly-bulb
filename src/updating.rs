@@ -68,10 +68,7 @@ fn read_dpad() -> ff::DPad4 {
 
 pub fn advance_actions(state: &mut State) {
     state.dirty = true;
-    loop {
-        let Some(action) = state.script.pop() else {
-            break;
-        };
+    while let Some(action) = state.script.pop() {
         use bulb_parser::Action::*;
         if let Say(msg) = action {
             state.msg = Some(msg);
