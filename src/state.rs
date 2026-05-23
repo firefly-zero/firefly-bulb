@@ -9,8 +9,8 @@ pub struct State {
     pub script: bulb_parser::State,
     pub held_for: u32,
     pub dpad: ff::DPad4,
-    pub font: ff::FileBuf,
-    pub atlas: ff::FileBuf,
+    pub font: ff::FontBuf,
+    pub atlas: ff::ImageBuf,
     pub dirty: bool,
     pub msg: Option<String>,
 }
@@ -27,7 +27,8 @@ pub fn get_state() -> &'static mut State {
 
 pub fn load_state() {
     let raw = ff::load_file_buf("main").unwrap();
-    let raw = alloc::str::from_utf8(raw.data()).unwrap();
+    let raw = raw.into_bytes();
+    let raw = alloc::str::from_utf8(&raw).unwrap();
     let sections = match bulb_parser::parse(raw) {
         Ok(sections) => sections,
         Err(err) => {
@@ -46,8 +47,8 @@ pub fn load_state() {
     };
     let mut state = State {
         script: bulb_parser::State::new(sections),
-        font,
-        atlas,
+        font: font.into(),
+        atlas: atlas.into(),
         dirty: true,
         held_for: 0,
         dpad: ff::DPad4::None,
